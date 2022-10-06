@@ -90,7 +90,7 @@ const handleRequest = async (request) => {
   } else if(url.pathname === "/lists/[0-9]+/items" && request.method === "POST"){
     return await single_shopping_listController.addItem(request);
   } else if (url.pathname === "/lists/[0-9]+/items" && request.method === "GET"){
-    return await single_shopping_listController.viewItems(request);
+    return await shopping_listController.viewsignle_shopping_list(request);
   } else {
     return new Response("Not found", { status: 404 });
   }

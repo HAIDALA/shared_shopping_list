@@ -13,13 +13,13 @@
 
 
 
-<ul>
+<% /* <ul>
 <% it.items.forEach((item) => { %>
   <li>
   <%= item.name %>
   </li>
 <% }); %>
-</ul>
+</ul> */ %>
 
 <% /* <h1><%= it.task.name %></h1>
 
