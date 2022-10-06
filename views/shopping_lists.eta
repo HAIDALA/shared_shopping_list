@@ -1,0 +1,47 @@
+<% /* <title>Shared shopping lists</title>
+<h1>shopping lists</h1>
+
+<h2>Add a shopping lists</h2>
+
+<form method="POST", action="/lists" >
+  Name: <input type="text" name="name" />
+  <input type="submit" value="Add a new shopping list!" />
+</form>
+
+<h2>Active shopping lists</h2>
+
+
+
+<ul>
+<% it.shopping_lists.forEach((shopping_list) => { %>
+  <li>
+    <a href="/lists/<%= shopping_list.id %>"><%= shopping_list.name %></a>
+    <form method="POST" action="/lists/<%= shopping_list.id %>/deactivate">
+      <input type="submit" value="Deactivate list!" />
+    </form>
+  </li>
+<% }); %>
+</ul> */ %>
+
+<h1>shopping lists</h1>
+
+<h2>Add a shopping lists</h2>
+
+<form method="POST" action="/lists">
+  Name: <input type="text" name="name" />
+  <input type="submit" value="Add a new shopping list!" />
+</form>
+
+<h2>Active shopping lists</h2>
+
+<ul>
+<% it.shopping_lists.forEach((shopping_list) => { %>
+  <li>
+  <a href="/lists/<%= shopping_list.id %>"><%= shopping_list.name %>
+  </li>
+<% }); %>
+</ul>
+
+ 
+    
+
