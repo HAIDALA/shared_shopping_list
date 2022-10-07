@@ -1,28 +1,4 @@
-<% /* <title>Shared shopping lists</title>
-<h1>shopping lists</h1>
-
-<h2>Add a shopping lists</h2>
-
-<form method="POST", action="/lists" >
-  Name: <input type="text" name="name" />
-  <input type="submit" value="Add a new shopping list!" />
-</form>
-
-<h2>Active shopping lists</h2>
-
-
-
-<ul>
-<% it.shopping_lists.forEach((shopping_list) => { %>
-  <li>
-    <a href="/lists/<%= shopping_list.id %>"><%= shopping_list.name %></a>
-    <form method="POST" action="/lists/<%= shopping_list.id %>/deactivate">
-      <input type="submit" value="Deactivate list!" />
-    </form>
-  </li>
-<% }); %>
-</ul> */ %>
-
+<% layout("./layouts/layout.eta") %>
 <h1>shopping lists</h1>
 
 <h2>Add a shopping lists</h2>
@@ -36,12 +12,26 @@
 
 <ul>
 <% it.shopping_lists.forEach((shopping_list) => { %>
-  <li>
-  <a href="/lists/<%= shopping_list.id %>"><%= shopping_list.name %>
-  </li>
-<% }); %>
-</ul> 
+  
 
- 
+  <li>
+    <a href="/lists/<%= shopping_list.id %>"><%= shopping_list.name %></a><br>
+      <form action="/lists/<%= shopping_list.id %>/deactivate" method="POST">
+        <input type="submit" value="Deactivate list!" /><br>
+      </form>
+  </li>
+
+  
+<% }); %>
+</ul>
+
+<ul>
+
+<h2>
+<a href="/">Main page</a>
+</h2>
+
+
+
     
 
