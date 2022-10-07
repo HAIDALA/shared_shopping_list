@@ -142,16 +142,6 @@ const viewshopping_lists = async (request) => {
   return new Response(await renderFile("shopping_lists.eta", data), responseDetails);
 };
 
-const viewsignle_shopping_list = async (request) => {
-  const url = new URL(request.url);
-  const urlParts = url.pathname.split("/");
 
-  const data = {
-    signle_shopping_list: await shopping_listService.findById(urlParts[2]),
-    
-  };
 
-  return new Response(await renderFile("single_shopping_list.eta", data), responseDetails);
-};
-
-export { addshopping_list, viewshopping_lists, viewsignle_shopping_list };
+export { addshopping_list, viewshopping_lists };
