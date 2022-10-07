@@ -83,4 +83,4 @@ const findById = async (id) => {
   return { id: 0, name: "Unknown" };
 };
 
-export {create, findActiveShoppingList, findById}
+export {create, findActiveShoppingList,  findById}
