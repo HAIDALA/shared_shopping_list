@@ -85,14 +85,19 @@ const handleRequest = async (request) => {
     return await shopping_listController.addshopping_list(request);
   } else if (url.pathname === "/lists" && request.method === "GET") {
     return await shopping_listController.viewshopping_lists(request);
-  } else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
-    return await shopping_listController.viewsignle_shopping_list(request);
-  } else if(url.pathname === "/lists/[0-9]+/items" && request.method === "POST"){
+  } else if(url.pathname.match("/lists/[0-9]+/items/[0-9]+/collect") && request.method === "POST"){
+    return await single_shopping_listController.collectItem(request);
+  } else if(url.pathname.match("/lists/[0-9]+/items") && request.method === "POST"){
     return await single_shopping_listController.addItem(request);
-  } else if (url.pathname === "/lists/[0-9]+/items" && request.method === "GET"){
-    return await shopping_listController.viewsignle_shopping_list(request);
+  } else if (url.pathname.match("/lists/[0-9]+") && request.method === "GET"){
+    return await single_shopping_listController.viewItems_signle_shopping_list(request);
   } else {
     return new Response("Not found", { status: 404 });
   }
 };
 serve(handleRequest, { port: 7777 });
+
+
+
+
+
