@@ -40,7 +40,7 @@
   <a href="/lists/<%= shopping_list.id %>"><%= shopping_list.name %>
   </li>
 <% }); %>
-</ul>
+</ul> 
 
  
     
