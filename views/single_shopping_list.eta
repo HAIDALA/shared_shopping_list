@@ -1,42 +1,37 @@
 <title>Shared shopping lists</title>
-<h1>Single Shopping List: <%= it.signle_shopping_list.name %> </h1>
 
-
+<% if (it.current_signle_shopping_list) { %>
+<h1>Single Shopping List: <%= it.current_signle_shopping_list.name %> </h1>
 
 <h2>Add an item:</h2>
-<form method="POST", action="/lists/<%= it.signle_shopping_list.id %>/items">
+
+<form action="/lists/<%= it.current_signle_shopping_list.id %>/items" method="POST">
   Name: <input type="text" name="name" />
   <input type="submit" value="Add a new item!" />
 </form>
 
 <h2>Existing items:</h2>
 
-
-
-<% /* <ul>
+<ul>
 <% it.items.forEach((item) => { %>
   <li>
-  <%= item.name %>
+  <%= item.name %><form action="/lists/<%= it.current_signle_shopping_list.id %>/items/<%= item.id %>/collect" method="POST">
+  <input type="submit" value="Mark collected!" />
+</form>
   </li>
 <% }); %>
-</ul> */ %>
-
-<% /* <h1><%= it.task.name %></h1>
-
-<% if (!it.currentWorkEntry) { %>
-
-<h2>Start a work entry</h2>
-
-<form action="/tasks/<%= it.task.id %>/entries" method="POST">
-  <input type="submit" value="Start a work entry!" />
+<% it.collected_items.forEach((collected_item) => { %>
+  <li>
+  <del><%= collected_item.name %></del>
 </form>
+  </li>
+<% }); %>
+</ul>
 
 <% } else { %>
 
-<p>Current work entry started on <%= it.currentWorkEntry.started_on %></p>
+<p>This shopping list does not exist please try again!</p>
 
-<form method="POST" action="/tasks/<%= it.task.id %>/entries/<%= it.currentWorkEntry.id %>">
-  <input type="submit" value="Finish work entry!" />
-</form>
+<% } %>
 
-<% } %> */ %>
+
